@@ -1,0 +1,8 @@
+.cover {
+    @extend %absolute;
+    img {
+        @extend %full-width;
+        @extend %full-height;
+        object-fit: cover;
+    }
+}

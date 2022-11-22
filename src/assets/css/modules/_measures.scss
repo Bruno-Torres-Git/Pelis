@@ -1,0 +1,248 @@
+//width, height, margin, padding, top, right, bottom, left and gap: measures (px and percents)
+$percent: '%';
+@for $i from 1 through 20 {
+    //$k: $i * 10 / 2;
+    $k:calc($i * 10 / 2);
+    @if($i == 20){
+        %full-width {
+            width:#{$k}#{$percent};
+        }
+        %full-height {
+            height:#{$k}#{$percent};
+        }
+        %min-full-height {
+            min-height:#{$k}#{$percent};
+        }
+        %vw-100 {
+            width:#{$k}vw;
+        }
+        %vh-100 {
+            height: #{$k}vh;
+        }
+        .full-width {
+            @extend  %full-width;
+        }
+        .full-height {
+            @extend %full-height;
+        }
+        .min-full-height {
+           @extend %min-full-height;
+        }
+        .vw-100 {
+            @extend %vw-100;
+        }
+        .vh-100 {
+            @extend %vh-100;
+        }
+    }@else if($i <= 10){
+        %width-#{$k}p {
+            width:#{$k}#{$percent};
+        }
+        %width-#{$k} {
+            width:#{$k}px;
+        }
+        %height-#{$k}p {
+            height:#{$k}#{$percent};
+        }
+        %height-#{$k} {
+            height:#{$k}px;
+        }
+        .width-#{$k}p {
+            @extend %width-#{$k}p;
+        }
+        .width-#{$k} {
+            @extend %width-#{$k};
+        }
+        .height-#{$k}p {
+            @extend %height-#{$k}p;
+        }
+        .height-#{$k} {
+            @extend %height-#{$k};
+        }
+        //margin and padding
+        %margin-top-#{$k} {
+            margin:#{$k}px 0 0 0;
+        }
+        %margin-left-#{$k} {
+            margin:0 0 0 #{$k}px;
+        }
+        %margin-top-bottom-#{$k} {
+            margin:#{$k}px 0;
+        }
+        %margin-right-#{$k} {
+            margin:0 #{$k}px 0 0;
+        }
+        %margin-left-right-#{$k} {
+            margin:0 #{$k}px;
+        }
+        %margin-bottom-#{$k} {
+            margin:0 0 #{$k}px 0;
+        }
+        %padding-#{$k} {
+            padding:#{$k}px;
+        }
+        %padding-top-#{$k} {
+            padding:#{$k}px 0 0 0;
+        }
+        %padding-top-bottom-#{$k} {
+            padding:#{$k}px 0;
+        }
+        %padding-left-#{$k} {
+            padding:0 0 0 #{$k}px;
+        }
+        %padding-right-#{$k} {
+            padding:0 #{$k}px 0 0;
+        }
+        %padding-left-right-#{$k} {
+            padding:0 #{$k}px;
+        }
+        %padding-bottom-#{$k} {
+            padding:0 0 #{$k}px 0;
+        }
+        .margin-top-#{$k} {
+            @extend %margin-top-#{$k};
+        }
+        .margin-top-bottom-#{$k} {
+            @extend %margin-top-bottom-#{$k};
+        }
+        .margin-right-#{$k} {
+            @extend %margin-right-#{$k};
+        }
+        .margin-left-right-#{$k} {
+            @extend  %margin-left-right-#{$k};
+        }
+        .margin-bottom-#{$k} {
+            @extend %margin-bottom-#{$k};
+        }
+        .padding-#{$k}{
+            @extend %padding-#{$k};
+        }
+        .padding-top-#{$k} {
+            @extend %padding-top-#{$k};
+        }
+        .padding-top-bottom-#{$k} {
+            @extend %padding-top-bottom-#{$k};
+        }
+        .padding-left-#{$k} {
+            @extend %padding-left-#{$k};
+        }
+        .padding-right-#{$k} {
+            @extend %padding-right-#{$k};
+        }
+        .padding-left-right-#{$k} {
+            @extend %padding-left-right-#{$k};
+        }
+        .padding-bottom-#{$k} {
+           @extend %padding-bottom-#{$k};
+        }
+        //xy pos
+        %top-#{$k} {
+            top:#{$k}px;
+        }
+        %top-#{$k}-p {
+            top:#{$k}#{$percent};
+        }
+        %left-#{$k} {
+            left:#{$k}px;
+        }
+        %left-#{$k}-p {
+            left:#{$k}#{$percent};
+        }
+        %bottom-#{$k} {
+            bottom:#{$k}px;
+        }
+        %bottom-#{$k}-p {
+            bottom:#{$k}#{$percent};
+        }
+        %right-#{$k} {
+            right:#{$k}px;
+        }
+        %right-#{$k}-p {
+            right:#{$k}#{$percent};
+        }
+        .top-#{$k} {
+           @extend %top-#{$k};
+        }
+        .top-#{$k}-p {
+           @extend %top-#{$k}-p;
+        }
+        .left-#{$k} {
+           @extend %left-#{$k};
+        }
+        .left-#{$k}-p {
+            @extend %left-#{$k}-p;
+        }
+        .bottom-#{$k} {
+            @extend %bottom-#{$k};
+        }
+        .bottom-#{$k}-p {
+            @extend %bottom-#{$k}-p;
+        }
+        .right-#{$k} {
+            @extend %right-#{$k};
+        }
+        .right-#{$k}-p {
+            @extend  %right-#{$k}-p;
+        }
+        //gap
+        %gap-#{$k} {
+            gap:#{$k}px;
+        }
+        .gap-#{$k} {
+            @extend %gap-#{$k};
+        }
+    }@else{
+        %width-#{$k}p {
+            width:#{$k}#{$percent};
+        }
+        %height-#{$k}p {
+            height:#{$k}#{$percent};
+        }        
+        .width-#{$k}p {
+            @extend %width-#{$k}p;
+        }
+        .height-#{$k}p {
+            @extend %height-#{$k}p;
+        }
+    }    
+}
+
+$valueZero:(
+    'top',
+    'left',
+    'bottom',
+    'right',
+    'padding',
+    'margin'
+);
+
+@each $n in $valueZero {
+    @if($n == 'margin'){
+        %#{$n}-none {
+            #{$n}:0;
+        }
+        .#{$n}-none{
+            @extend %#{$n}-none;
+        }
+        %#{$n}-auto {
+            #{$n}:0 auto;
+        }
+        .#{$n}-auto{
+            @extend %#{$n}-auto;
+        }
+    }@else if($n == 'padding'){
+        %#{$n}-none {
+            #{$n}:0;
+        }
+        .#{$n}-none{
+            @extend %#{$n}-none;
+        }
+    }@else {
+        %#{$n}-0 {
+            #{$n}:0;
+        }
+        .#{$n}-0{
+            @extend %#{$n}-0;
+        }
+    }
+}

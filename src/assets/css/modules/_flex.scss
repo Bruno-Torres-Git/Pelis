@@ -1,0 +1,162 @@
+$displayFlex:(
+    flex:flex,
+    f-inline:inline-flex
+);
+
+$flexDirection:(
+    row:row,
+    r-reverse:row-reverse,
+    column:column,
+    r-column:column-reverse
+);
+
+$flexWrap:(
+    nowrap: nowrap,
+    wrap: wrap
+);
+
+$justifyContent:(
+    space-between:space-between,
+    space-around:space-around,
+    space-evenly:space-evenly
+);
+
+//flex align-items and align-self
+$globalFlex:(
+    start:flex-start,
+    end:flex-end,
+    center:center,
+    baseline:baseline,
+    stretch:stretch,
+);
+
+@mixin genDisplayFlex($name, $prop){
+    %#{$name}{
+        display:$prop;
+    }
+    .#{$name}{
+        @extend %#{$name}
+    }
+};
+@each $name, $prop in $displayFlex {
+    @include genDisplayFlex($name, $prop);
+}
+
+@mixin genFlexDirection($name, $prop){
+    %#{$name}{
+        flex-direction:$prop;
+    }
+    .#{$name}{
+        @extend %#{$name}
+    }
+};
+@each $name, $prop in $flexDirection {
+    @include genFlexDirection($name, $prop);
+};
+
+@mixin genFlexWrap($name, $prop){
+    %#{$name}{
+        flex-wrap:$prop;
+    }
+    .#{$name}{
+        @extend %#{$name}
+    }
+};
+@each $name, $prop in $flexWrap {
+    @include genFlexWrap($name, $prop);
+};
+
+@mixin genJustifyContent($name, $prop){
+    @if($name != 'space-evenly'){
+        %x-#{$name}{
+            justify-content:$prop;
+        };
+        .x-#{$name}{
+            @extend %x-#{$name}
+        };
+        //align content
+        %xy-#{$name}{
+            align-content:$prop;
+        };
+        .xy-#{$name}{
+            @extend %xy-#{$name}
+        };
+    }@else{
+        %x-#{$name}{
+            justify-content:$prop;
+        }
+        .x-#{$name}{
+            @extend %x-#{$name}
+        };
+    }
+};
+@each $name, $prop in $justifyContent {
+    @include genJustifyContent($name, $prop);
+};
+
+//align-items, justify-content, align-content
+@each $name, $prop in $globalFlex{
+    @if($name == 'baseline'){
+        %y-#{$name}{
+            align-items: $prop;
+        } 
+        .y-#{$name}{
+            @extend %y-#{$name};
+        }
+        %self-#{$name}{
+            align-self: $prop;
+        }
+        .self-#{$name}{
+            @extend %self-#{$name}
+        };
+    }@else if($name == 'stretch') {
+        %y-#{$name}{
+            align-items: $prop;
+        } 
+        .y-#{$name}{
+            @extend %y-#{$name};
+        }
+        %xy-#{$name}{
+            align-content: $prop;
+        } 
+        .xy-#{$name}{
+            @extend %xy-#{$name};
+        }
+    }@else {
+        %y-#{$name}{
+            align-items: $prop;
+        } 
+        .y-#{$name}{
+            @extend %y-#{$name};
+        }
+        %x-#{$name}{
+            justify-content: $prop;
+        } 
+        .x-#{$name}{
+            @extend %x-#{$name};
+        }
+        %xy-#{$name}{
+            align-content: $prop;
+        } 
+        .xy-#{$name}{
+            @extend %xy-#{$name};
+        }
+        %self-#{$name}{
+            align-self: $prop;
+        }
+        .self-#{$name}{
+            @extend %self-#{$name}
+        }
+
+    }
+}
+
+// flex grow
+@for $i from 0 through 4 {
+    %grow-#{$i} {
+        flex-grow:$i;
+    }
+    .grow-#{$i}{
+        @extend %grow-#{$i};
+    }
+}

@@ -1,0 +1,22 @@
+.input-wrap {
+    height:35px;
+    width:30px;
+    border-radius: 4px;
+    border:1px solid transparent;
+    overflow: hidden;
+    transition: .35s ease-in-out;
+    &_open {
+        width: 230px;
+        border:1px solid #fff;
+    }
+    input {
+        flex-grow: 2;
+        @extend %white;
+        background: transparent;
+        border:none;
+    }
+    .button_icon {
+        @extend %padding-left-right-5;
+    }
+}
+

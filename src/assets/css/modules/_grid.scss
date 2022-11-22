@@ -1,0 +1,20 @@
+.grid {
+    @extend %flex;
+    @extend %wrap;
+    @extend %x-center;
+    gap:10px;
+    .item {
+        @extend %relative;
+        width: 160px;
+    }
+
+}
+
+.card {
+    .card-cover {
+        @extend %full-width;
+        height: calc(140px * 1.5);
+        min-height: calc(140px * 1.5);
+
+    }
+}

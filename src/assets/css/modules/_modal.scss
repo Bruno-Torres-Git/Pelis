@@ -1,0 +1,33 @@
+.modal {
+    @extend %top-0;
+    @extend %left-0;
+    background:rgba(0,0,0,.6);
+    z-index: 999;
+    .modal-content {
+        max-width: 400px;
+        border-radius:5px;
+        @extend %padding-10;
+        box-shadow: 0 0 10px rgba(0,0,0,.6);
+    }
+}
+
+.boton-icon{
+    font-size:20px;
+    background: transparent;
+    @extend %padding-none;
+    border:none;
+    @extend %absolute;
+    cursor:pointer;
+}
+
+.modal-fade-enter,
+.modal-fade-leave-to {
+    opacity: 0;
+  }
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+    transition: .5s ease-in-out;
+}
+
+

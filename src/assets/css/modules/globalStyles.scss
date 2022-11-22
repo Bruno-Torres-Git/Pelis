@@ -1,0 +1,67 @@
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html, body {
+    @extend %full-height;
+    @extend %margin-none;
+    @extend %padding-none;
+}
+
+body {
+    font-size: 62.5%;
+    @extend %bg-black;
+}
+
+.main-wrapper,
+main,
+section,
+.container,
+footer {
+    @extend %full-width;
+}
+
+.main-wrapper,
+section,
+main,
+.container {
+    @extend %relative;
+}
+
+.main-wrapper,
+.container {
+    @extend %margin-auto;
+}
+
+.main-wrapper,
+main {
+    @extend %min-full-height;
+}
+
+footer {
+    @extend %absolute;
+    @extend %bottom-0;
+    @extend %left-0;
+}
+
+img,
+video {
+    max-width:100%;
+}
+
+a,
+button, 
+input,
+select {
+    outline: none;
+}
+
+ul {
+    list-style: none;
+    @extend %margin-none;
+    @extend %padding-none;
+}

@@ -1,0 +1,31 @@
+@mixin button($height, $padding, $size, $posX, $posY){
+    height:#{$height}px;
+    padding:0 #{$padding}px;
+    font-size:#{$size}px;
+    justify-content: $posX;
+    align-items: $posY;
+}
+.button {
+    position:relative;
+    border:none;
+    background: transparent;
+    cursor: pointer;
+    @extend %flex;
+    @include button(35, 20, 20, center, center);
+    transition: .35s ease-in-out;
+    &_white {
+        @extend %bg-white;
+        @extend %black;
+    }
+    &_outline-gray {
+        background: rgba(255,255,255,.3);
+        @extend %white;
+    }
+    &_icon {
+        height:auto;
+        padding:0;
+    }
+}
+a.button {
+    display:inline-block;
+}
